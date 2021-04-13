@@ -4,3 +4,6 @@ let canvas = document.querySelector("#the-canvas");
 let context = canvas.getContext("2d");
 canvas.width = wWidth;
 canvas.height = wHeight;
+$(window).load(() => {
+  $("#loginModal").modal("show");
+});
