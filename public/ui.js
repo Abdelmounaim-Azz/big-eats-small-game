@@ -15,3 +15,8 @@ $(".name-form").submit((event) => {
   $("#spawnModal").modal("show");
   document.querySelector(".player-name").innerHTML = player.name;
 });
+$(".start-game").click((event) => {
+  $(".modal").modal("hide");
+  $(".hiddenOnStart").removeAttr("hidden");
+  init();
+});
