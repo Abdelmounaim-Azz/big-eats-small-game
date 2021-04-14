@@ -1,28 +1,17 @@
 function draw() {
-  context.setTransform(1, 0, 0, 1, 0, 0);
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const camX = -player.locX + canvas.width / 2;
   const camY = -player.locY + canvas.height / 2;
-  context.translate(camX, camY);
-
-  // draw all the players
-  players.forEach((p) => {
-    context.beginPath();
-    context.fillStyle = p.color;
-    context.arc(p.locX, p.locY, p.radius, 0, Math.PI * 2);
-    context.fill();
-    context.lineWidth = 3;
-    context.strokeStyle = "rgb(0,255,0)";
-    context.stroke();
-  });
+  ctx.translate(camX, camY);
 
   // draw all the orbs
   orbs.forEach((orb) => {
-    context.beginPath();
-    context.fillStyle = orb.color;
-    context.arc(orb.locX, orb.locY, orb.radius, 0, Math.PI * 2);
-    context.fill();
+    ctx.beginPath();
+    ctx.fillStyle = orb.color;
+    ctx.arc(orb.locX, orb.locY, orb.radius, 0, Math.PI * 2);
+    ctx.fill();
   });
 
   requestAnimationFrame(draw);

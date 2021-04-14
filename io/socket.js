@@ -1,11 +1,11 @@
 const io = require("../servers").io;
 const Orb = require("./classes/orb");
 let orbs = [];
-initGame();
 let settings = {
   defaultOrbs: 50,
   worldWidth: 500,
 };
+initGame();
 
 io.sockets.on("connect", (socket) => {
   socket.emit("initOrbs", {
