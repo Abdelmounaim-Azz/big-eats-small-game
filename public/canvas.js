@@ -5,7 +5,16 @@ function draw() {
   const camX = -player.locX + canvas.width / 2;
   const camY = -player.locY + canvas.height / 2;
   ctx.translate(camX, camY);
-
+  //draw players
+  players.forEach((player) => {
+    ctx.beginPath();
+    ctx.fillStyle = player.color;
+    ctx.arc(player.locX, player.locY, player.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "rgb(0,255,0)";
+    ctx.stroke();
+  });
   // draw all the orbs
   orbs.forEach((orb) => {
     ctx.beginPath();

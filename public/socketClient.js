@@ -10,5 +10,5 @@ socket.on("initOrbs", (data) => {
 });
 
 socket.on("tick", (data) => {
-  console.log(data);
+  players = data.players;
 });

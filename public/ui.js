@@ -4,6 +4,7 @@ let canvas = document.querySelector("#the-canvas");
 let ctx = canvas.getContext("2d");
 let player = {};
 let orbs = [];
+let players = [];
 canvas.width = wWidth;
 canvas.height = wHeight;
 $(window).load(() => {
