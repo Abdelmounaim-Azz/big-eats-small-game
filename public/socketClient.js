@@ -8,3 +8,7 @@ function init() {
 socket.on("initOrbs", (data) => {
   orbs = data.orbs;
 });
+
+socket.on("tick", (data) => {
+  console.log(data);
+});

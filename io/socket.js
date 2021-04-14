@@ -14,10 +14,16 @@ let settings = {
 };
 
 initGame();
-
+//Run fnc every 33ms(30fps)
+setInterval(() => {
+  io.to("game").emit("tick", () => {
+    players;
+  });
+}, 33);
 io.sockets.on("connect", (socket) => {
   let player = {};
   socket.on("init", (data) => {
+    socket.join("game");
     let playerConfig = new PlayerConfig(settings);
     let playerPayload = new PlayerPayload(data.playerName, settings);
     player = new Player(socket.id, playerConfig, playerPayload);
