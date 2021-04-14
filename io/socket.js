@@ -1,9 +1,10 @@
 const io = require("../servers").io;
 const Orb = require("./classes/orb");
-const Player = require("./classes/Player");
-const PlayerPayload = require("./classes/PlayerPayload");
-const PlayerConfig = require("./classes/PlayerConfig");
+const Player = require("./classes/player");
+const PlayerPayload = require("./classes/playerPayload");
+const PlayerConfig = require("./classes/playerConf");
 let orbs = [];
+let players = [];
 let settings = {
   defaultOrbs: 50,
   defaultSpeed: 6,
@@ -16,9 +17,11 @@ let settings = {
 initGame();
 //Run fnc every 33ms(30fps)
 setInterval(() => {
-  io.to("game").emit("tick", () => {
-    players;
-  });
+  if (players.length > 0) {
+    io.to("game").emit("tick", {
+      players,
+    });
+  }
 }, 33);
 io.sockets.on("connect", (socket) => {
   let player = {};
@@ -27,11 +30,12 @@ io.sockets.on("connect", (socket) => {
     let playerConfig = new PlayerConfig(settings);
     let playerPayload = new PlayerPayload(data.playerName, settings);
     player = new Player(socket.id, playerConfig, playerPayload);
+
+    socket.emit("initOrbs", {
+      orbs,
+    });
+    players.push(playerPayload);
   });
-  socket.emit("initOrbs", {
-    orbs,
-  });
-  players.push(playerData);
 });
 function initGame() {
   for (let i = 0; i < settings.defaultOrbs; i++) {
