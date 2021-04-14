@@ -19,5 +19,5 @@ $(".name-form").submit((event) => {
 $(".start-game").click((event) => {
   $(".modal").modal("hide");
   $(".hiddenOnStart").removeAttr("hidden");
-  draw();
+  init();
 });
