@@ -1,7 +1,7 @@
 let wHeight = $(window).height();
 let wWidth = $(window).width();
 let canvas = document.querySelector("#the-canvas");
-let context = canvas.getContext("2d");
+let ctx = canvas.getContext("2d");
 let player = {};
 canvas.width = wWidth;
 canvas.height = wHeight;
@@ -18,5 +18,5 @@ $(".name-form").submit((event) => {
 $(".start-game").click((event) => {
   $(".modal").modal("hide");
   $(".hiddenOnStart").removeAttr("hidden");
-  init();
+  draw();
 });
