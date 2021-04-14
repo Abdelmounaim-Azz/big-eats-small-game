@@ -7,6 +7,12 @@ function init() {
 }
 socket.on("initOrbs", (data) => {
   orbs = data.orbs;
+  setInterval(() => {
+    socket.emit("tock", {
+      xV: player.xVector,
+      yV: player.yVector,
+    });
+  }, 33);
 });
 
 socket.on("tick", (data) => {
