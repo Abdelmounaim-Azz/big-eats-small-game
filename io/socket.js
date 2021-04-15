@@ -62,10 +62,14 @@ io.sockets.on("connect", (socket) => {
       player.playerConfig,
       orbs,
       settings
-    );
+    ); //Returned value is orb index
     orbEat
-      .then(() => {
-        console.log("collision");
+      .then((data) => {
+        const orbInfo = {
+          orbIndex: data,
+          newOrbGenerated: orbs[data],
+        };
+        io.sockets.emit("orbReplaced", orbInfo);
       })
       .catch(() => {});
   });

@@ -20,3 +20,6 @@ socket.on("tick", (data) => {
     (player.locX = data.playerX),
     (player.locY = data.playerY);
 });
+socket.on("orbReplaced", (data) => {
+  orbs.splice(data.orbIndex, 1, data.newOrbGenerated);
+});
