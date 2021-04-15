@@ -9,12 +9,12 @@ const PlayerConfig = require("./classes/PlayerConfig");
 let orbs = [];
 let players = [];
 let settings = {
-  defaultOrbs: 50,
+  defaultOrbs: 5000,
   defaultSpeed: 6,
   defaultSize: 6,
   defaultZoom: 1.5,
-  worldWidth: 500,
-  worldHeight: 500,
+  worldWidth: 5000,
+  worldHeight: 5000,
 };
 
 initGame();
@@ -45,12 +45,12 @@ io.sockets.on("connect", (socket) => {
 
     if (
       (player.playerData.locX < 5 && player.playerData.xV < 0) ||
-      (player.playerData.locX > 500 && xV > 0)
+      (player.playerData.locX > settings.worldWidth && xV > 0)
     ) {
       player.playerData.locY -= speed * yV;
     } else if (
       (player.playerData.locY < 5 && yV > 0) ||
-      (player.playerData.locY > 500 && yV < 0)
+      (player.playerData.locY > settings.worldHeight && yV < 0)
     ) {
       player.playerData.locX += speed * xV;
     } else {
