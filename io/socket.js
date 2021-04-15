@@ -42,7 +42,6 @@ io.sockets.on("connect", (socket) => {
     speed = player.playerConfig.speed;
     let xV = (player.playerConfig.xVector = data.xV);
     let yV = (player.playerConfig.yVector = data.yV);
-    console.log(speed, xV, yV, player);
 
     if (
       (player.playerData.locX < 5 && player.playerData.xV < 0) ||
@@ -65,12 +64,10 @@ io.sockets.on("connect", (socket) => {
       settings
     );
     orbEat
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        console.log("collision");
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(() => {});
   });
 });
 function initGame() {

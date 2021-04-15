@@ -1,4 +1,4 @@
-const Orb = require("./classes/Orb");
+const Orb = require("./classes/orb");
 const io = require("../servers").io;
 
 function checkForOrbCollisions(pData, pConfig, orbs, settings) {
