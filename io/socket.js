@@ -58,13 +58,19 @@ io.sockets.on("connect", (socket) => {
       player.playerData.locX += speed * xV;
       player.playerData.locY -= speed * yV;
     }
-    let orbEat = await checkForOrbCollisions(
+    let orbEat = checkForOrbCollisions(
       player.playerData,
       player.playerConfig,
       orbs,
       settings
     );
-    console.log(orbEat);
+    orbEat
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 });
 function initGame() {
