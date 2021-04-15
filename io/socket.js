@@ -25,13 +25,11 @@ io.sockets.on("connect", (socket) => {
     let playerData = new PlayerData(data.playerName, settings);
     player = new Player(socket.id, playerConfig, playerData);
     setInterval(() => {
-      if (players.length > 0) {
-        io.to("game").emit("tick", {
-          players,
-          playerX: player.playerData.locX,
-          playerY: player.playerData.locY,
-        });
-      }
+      io.to("game").emit("tick", {
+        players,
+        playerX: player.playerData.locX,
+        playerY: player.playerData.locY,
+      });
     }, 33);
     socket.emit("initOrbs", {
       orbs,
