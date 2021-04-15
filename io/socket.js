@@ -18,7 +18,6 @@ let settings = {
 };
 
 initGame();
-//Run fnc every 33ms(30fps)
 
 io.sockets.on("connect", (socket) => {
   let player = {};
@@ -39,7 +38,7 @@ io.sockets.on("connect", (socket) => {
     });
     players.push(playerData);
   });
-  socket.on("tock", (data) => {
+  socket.on("tock", async (data) => {
     speed = player.playerConfig.speed;
     let xV = (player.playerConfig.xVector = data.xV);
     let yV = (player.playerConfig.yVector = data.yV);
@@ -59,6 +58,13 @@ io.sockets.on("connect", (socket) => {
       player.playerData.locX += speed * xV;
       player.playerData.locY -= speed * yV;
     }
+    let orbEat = await checkForOrbCollisions(
+      player.playerData,
+      player.playerConfig,
+      orbs,
+      settings
+    );
+    console.log(orbEat);
   });
 });
 function initGame() {
