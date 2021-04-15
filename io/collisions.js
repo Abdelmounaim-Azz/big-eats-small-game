@@ -18,7 +18,6 @@ function checkForOrbCollisions(pData, pConfig, orbs, settings) {
           //COLLISION!!!
           pData.score += 1;
           pData.orbsAbsorbed += 1;
-          // pData.color = orb.color;
           if (pConfig.zoom > 1) {
             pConfig.zoom -= 0.001;
           }
@@ -70,7 +69,6 @@ function checkForPlayerCollisions(pData, pConfig, players) {
             } else if (pData.radius < pR) {
               let collisionData = updateScores(curPlayer, pData);
               players.forEach((p, i) => {
-                console.log(players[i].name, i);
                 if (pData.uid == p.uid) {
                   players.splice(i, 1);
                 }

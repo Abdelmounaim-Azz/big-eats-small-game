@@ -6,6 +6,7 @@ class PlayerData {
     this.radius = settings.defaultSize;
     this.color = this.getRandomColor();
     this.score = 0;
+    this.playersAbsorbed = 0;
   }
   getRandomColor() {
     const r = Math.floor(Math.random() * 200 + 50);
