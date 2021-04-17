@@ -25,3 +25,6 @@ socket.on("orbReplaced", (data) => {
 socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
+socket.on("updateBoard", (data) => {
+  console.log(data);
+});
