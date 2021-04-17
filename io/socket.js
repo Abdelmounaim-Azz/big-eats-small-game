@@ -87,8 +87,9 @@ io.sockets.on("connect", (socket) => {
       player.socketId
     );
     playerGone
-      .then(() => {
+      .then((data) => {
         io.sockets.emit("updateBoard", leadBoard());
+        io.sockets.emit("playerKilled", data);
       })
       .catch(() => {});
   });
