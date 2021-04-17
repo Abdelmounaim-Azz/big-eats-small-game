@@ -74,6 +74,16 @@ io.sockets.on("connect", (socket) => {
       })
       .catch(() => {});
     //Player collision
+    let playerGone = checkForPlayerCollisions(
+      player.playerData,
+      player.playerConfig,
+      players
+    );
+    playerGone
+      .then(() => {
+        console.log("Player collision");
+      })
+      .catch(() => {});
   });
 });
 function initGame() {
