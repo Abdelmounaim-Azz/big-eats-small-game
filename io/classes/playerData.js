@@ -1,4 +1,4 @@
-const uuidv4 = require("uuid/v4");
+const { v4: uuidv4 } = require("uuid");
 class PlayerData {
   constructor(playerName, settings) {
     this.uid = uuidv4();
