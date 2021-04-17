@@ -32,7 +32,12 @@ io.sockets.on("connect", (socket) => {
     let playerConfig = new PlayerConfig(settings);
     let playerData = new PlayerData(data.playerName, settings);
     player = new Player(socket.id, playerConfig, playerData);
-
+    setInterval(() => {
+      io.to("game").emit("clientOnly", {
+        playerX: player.playerData.locX,
+        playerY: player.playerData.locY,
+      });
+    }, 33);
     socket.emit("initOrbs", {
       orbs,
     });
