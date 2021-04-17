@@ -94,7 +94,7 @@ io.sockets.on("connect", (socket) => {
       .catch(() => {});
   });
   socket.on("disconnect", (data) => {
-    player.data
+    player.playerData
       ? players.forEach((currP, i) => {
           if (currP.uid == player.playerData.uid) {
             players.splice(i, 1);
