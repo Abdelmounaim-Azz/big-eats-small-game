@@ -19,7 +19,7 @@ let settings = {
 
 initGame();
 setInterval(() => {
-  player.length > 0
+  players.length > 0
     ? io.to("game").emit("tick", {
         players,
       })
