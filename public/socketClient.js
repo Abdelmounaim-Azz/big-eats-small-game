@@ -16,10 +16,12 @@ socket.on("initOrbs", (data) => {
 });
 
 socket.on("tick", (data) => {
-  (players = data.players),
-    (player.locX = data.playerX),
-    (player.locY = data.playerY);
+  players = data.players;
 });
 socket.on("orbReplaced", (data) => {
   orbs.splice(data.orbIndex, 1, data.newOrbGenerated);
+});
+
+socket.on("clientOnly", (data) => {
+  (player.locX = data.playerX), (player.locY = data.playerY);
 });
