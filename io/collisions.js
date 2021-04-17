@@ -66,16 +66,15 @@ function checkForPlayerCollisions(pData, pConfig, players, playerId) {
               }
               players.splice(i, 1);
               resolve(collisionData);
+            } else if (pData.radius < pR) {
+              let collisionData = updateScores(curPlayer, pData);
+              players.forEach((p, i) => {
+                if (pData.uid == p.uid) {
+                  players.splice(i, 1);
+                }
+              });
+              resolve(collisionData);
             }
-            // else if (pData.radius < pR) {
-            //   let collisionData = updateScores(curPlayer, pData);
-            //   players.forEach((p, i) => {
-            //     if (pData.uid == p.uid) {
-            //       players.splice(i, 1);
-            //     }
-            //   });
-            //   resolve(collisionData);
-            // }
           }
         }
       }
