@@ -92,6 +92,9 @@ io.sockets.on("connect", (socket) => {
       })
       .catch(() => {});
   });
+  socket.on("disconnect", (data) => {
+    console.log(data);
+  });
 });
 function initGame() {
   for (let i = 0; i < settings.defaultOrbs; i++) {
