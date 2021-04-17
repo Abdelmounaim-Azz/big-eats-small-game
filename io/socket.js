@@ -75,6 +75,7 @@ io.sockets.on("connect", (socket) => {
           orbIndex: data,
           newOrbGenerated: orbs[data],
         };
+        io.sockets.emit("updateBoard", leadBoard());
         io.sockets.emit("orbReplaced", orbInfo);
       })
       .catch(() => {});
@@ -87,7 +88,7 @@ io.sockets.on("connect", (socket) => {
     );
     playerGone
       .then(() => {
-        console.log("Player collision");
+        io.sockets.emit("updateBoard", leadBoard());
       })
       .catch(() => {});
   });
@@ -97,5 +98,17 @@ function initGame() {
     orbs.push(new Orb(settings));
   }
 }
+const leadBoard = () => {
+  players.sort((a, b) => {
+    return b.score - a.score;
+  });
+  let board = players.map((currentP) => {
+    return {
+      name: currentP.name,
+      score: currentP.score,
+    };
+  });
+  return board;
+};
 
 module.exports = io;
