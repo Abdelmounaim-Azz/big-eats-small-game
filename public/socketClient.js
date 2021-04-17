@@ -26,5 +26,10 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  console.log(data);
+  document.querySelector(".leader-board").innerHTML = "";
+  data.forEach((curPlayer) => {
+    document.querySelector(".leader-board").innerHTML += `
+          <li class="leaderboard-player">${curPlayer.name} - ${curPlayer.score}</li>
+      `;
+  });
 });
