@@ -82,7 +82,8 @@ io.sockets.on("connect", (socket) => {
     let playerGone = checkForPlayerCollisions(
       player.playerData,
       player.playerConfig,
-      players
+      players,
+      player.socketId
     );
     playerGone
       .then(() => {
