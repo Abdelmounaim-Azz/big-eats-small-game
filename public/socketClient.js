@@ -28,12 +28,12 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  let numPlayers = data[0].numPlayers;
+  let numPlayers = data[-1].numPlayers;
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
-  data.forEach((curPlayer) => {
+  data.board.forEach((curPlayer) => {
     document.querySelector(".leader-board").innerHTML += `
-        <li class="leaderboard-player flex-p"> 
+        <li class="leaderboard-player flex-p">
           <div>#${curPlayer.rank}</div>
           <div>${curPlayer.name}</div>
           <div>${curPlayer.score}</div>
