@@ -121,6 +121,7 @@ const leadBoard = () => {
       numPlayers: players.length,
     };
   });
+  console.log(board);
   return board;
 };
 

@@ -40,10 +40,10 @@ socket.on("updateBoard", (data) => {
         </li>
       `;
     $("#color-player").css("color", random_color);
-    document.querySelector(
-      ".player-rank"
-    ).innerHTML += `${curPlayer.rank} of ${data.numPlayers}`;
   });
+  document.querySelector(
+    ".player-rank"
+  ).innerHTML += `${curPlayer.rank} of ${data.numPlayers}`;
 });
 
 socket.on("playerKilled", (data) => {
