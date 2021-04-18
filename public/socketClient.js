@@ -29,7 +29,7 @@ socket.on("clientOnly", (data) => {
   player.locY = data.playerY;
 });
 socket.on("updateBoard", (data) => {
-  let numplayers = data.length;
+  let numplayers = players.length;
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
@@ -52,10 +52,9 @@ socket.on("playerKilled", (data) => {
     "#game-message"
   ).innerHTML = `${data.died.name} absorbed by ${data.killedBy.name}`;
   $("#game-message").css({
-    "background-color": "#00e6e6",
+    "background-color": random_color,
     opacity: 1,
   });
   $("#game-message").show();
   $("#game-message").fadeOut(5000);
-  $("#loginModal").modal("show");
 });
