@@ -33,7 +33,7 @@ io.sockets.on("connect", (socket) => {
     let playerData = new PlayerData(data.playerName, settings);
     player = new Player(socket.id, playerConfig, playerData);
     setInterval(() => {
-      io.to("game").emit("clientOnly", {
+      socket.emit("clientOnly", {
         playerX: player.playerData.locX,
         playerY: player.playerData.locY,
       });
@@ -45,8 +45,8 @@ io.sockets.on("connect", (socket) => {
   });
   socket.on("tock", async (data) => {
     speed = player.playerConfig.speed;
-    let xV = (player.playerConfig.xVector = data.xV);
-    let yV = (player.playerConfig.yVector = data.yV);
+    xV = player.playerConfig.xVector = data.xV;
+    yV = player.playerConfig.yVector = data.yV;
 
     if (
       (player.playerData.locX < 5 && player.playerData.xV < 0) ||
