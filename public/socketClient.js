@@ -28,10 +28,11 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  let numPlayers = data[-1].numPlayers;
+  let numplayers=data.length;
+  console.log(numplayers)
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
-  data.board.forEach((curPlayer) => {
+  data.forEach((curPlayer) => {
     document.querySelector(".leader-board").innerHTML += `
         <li class="leaderboard-player flex-p">
           <div>#${curPlayer.rank}</div>
@@ -42,7 +43,7 @@ socket.on("updateBoard", (data) => {
     $("#color-player").css("color", random_color);
     document.querySelector(
       ".player-rank"
-    ).innerHTML += `${curPlayer.rank} of ${numPlayers}`;
+    ).innerHTML += `${curPlayer.rank} of ${numplayers}`;
   });
 });
 

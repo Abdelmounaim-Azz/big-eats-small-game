@@ -120,10 +120,7 @@ const leadBoard = () => {
       score: currentP.score,
     };
   });
-  return {
-    board,
-    numPlayers: players.length,
-  };
+  return board;
 };
 
 module.exports = io;
