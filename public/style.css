@@ -56,26 +56,33 @@ h3 {
 }
 
 #leader-board-wrapper {
-  min-width: 160px;
-  background-color: #800000;
-  color: white;
+  min-width: 300px;
+  background: transparent;
   font-size: 18px;
   opacity: 0.7;
   position: absolute;
   top: 10px;
   right: 10px;
-  border-radius: 5px;
 }
 
 #leader-board {
-  padding: 5px;
+  padding: 10px;
 }
 
 #sort-wrapper {
   margin-top: -20px;
   font-size: 14px;
 }
+.text-1 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 2rem;
+}
 
+.flex-player {
+  display: flex;
+  justify-content: space-between;
+}
 .sort-option {
   padding: 3px 0;
   width: 33.33%;
