@@ -19,11 +19,11 @@ let settings = {
 
 initGame();
 setInterval(() => {
-  players.length > 0
-    ? io.to("game").emit("tick", {
-        players,
-      })
-    : null;
+  if (players.length > 0) {
+    io.to("game").emit("tick", {
+      players,
+    });
+  }
 }, 33);
 io.sockets.on("connect", (socket) => {
   let player = {};
