@@ -79,10 +79,6 @@ h3 {
   font-size: 2rem;
 }
 
-.flex-player {
-  display: flex;
-  justify-content: space-between;
-}
 .sort-option {
   padding: 3px 0;
   width: 33.33%;
@@ -98,6 +94,11 @@ h3 {
 
 .active {
   background-color: #4d0000;
+}
+.flex-p {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
 }
 
 #sort-orbs {

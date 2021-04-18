@@ -1,5 +1,5 @@
 let socket = io.connect("http://localhost:5000");
-let colors = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
+let colors = ["#d62828", "#f77f00", "#bc6c25", "#06d6a0"];
 let random_color = colors[Math.floor(Math.random() * colors.length)];
 function init() {
   draw();
@@ -28,13 +28,14 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
+  // $("#color-player").css("color", random_color);
   document.querySelector(".leader-board").innerHTML = "";
   data.forEach((curPlayer) => {
     document.querySelector(".leader-board").innerHTML += `
-          <li class="leaderboard-player flex-player">
-          <span id="color-player">#${curPlayer.rank}</span>
-          <span id="color-player">${curPlayer.name}</span>
-          <span id="color-player">#${curPlayer.score}</span>
+        <li class="leaderboard-player flex-p">
+          <div>#${curPlayer.rank}</div>
+          <div>${curPlayer.name}</div>
+          <div>${curPlayer.score}</div>
         </li>
       `;
     $("#color-player").css("color", random_color);
