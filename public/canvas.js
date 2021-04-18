@@ -26,8 +26,7 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-canvas.addEventListener("mousemove", mouseEvent());
-const mouseEvent = (event) => {
+canvas.addEventListener("mousemove", (event) => {
   const mousePosition = {
     x: event.clientX,
     y: event.clientY,
@@ -55,4 +54,4 @@ const mouseEvent = (event) => {
 
   player.xVector = xVector;
   player.yVector = yVector;
-};
+});
