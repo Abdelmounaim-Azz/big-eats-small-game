@@ -12,7 +12,7 @@ function draw() {
     ctx.arc(player.locX, player.locY, player.radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.lineWidth = 3;
-    ctx.strokeStyle = "rgb(0,255,0)";
+    ctx.strokeStyle = "rgb(235, 52, 52)";
     ctx.stroke();
   });
   // draw all the orbs

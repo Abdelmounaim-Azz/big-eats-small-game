@@ -1,7 +1,39 @@
-body {
-  background-color: black;
-  overflow: hidden;
+:root {
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #90a4ae;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  text-decoration: none;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  background: #000;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
 h3 {
   margin-top: 10px;
 }
@@ -124,18 +156,6 @@ canvas {
   background-color: #00e600;
 }
 
-.btn-github {
-  background-image: url("/images/GitHub-Mark-Light-32px.png") !important;
-  color: #fff;
-  background-color: #444;
-  border-color: rgba(0, 0, 0, 0.2);
-  background-repeat: no-repeat;
-  background-position: 5px;
-}
-.btn-github:hover {
-  color: rgba(200, 200, 200, 0.5);
-}
-
 .stats-btn {
   width: 48%;
   margin: 0 auto 15px;
@@ -168,6 +188,9 @@ canvas {
 .play-btn-wrapper {
   width: 90%;
   margin: auto;
+}
+.bg-canvas {
+  background: url(./images/bg.png);
 }
 
 .btn-wrapper {

@@ -113,8 +113,9 @@ const leadBoard = () => {
   players.sort((a, b) => {
     return b.score - a.score;
   });
-  let board = players.map((currentP) => {
+  let board = players.map((currentP, i) => {
     return {
+      rank: i + 1,
       name: currentP.name,
       score: currentP.score,
     };
