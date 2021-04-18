@@ -28,8 +28,7 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  let numplayers=data.length;
-  console.log(numplayers)
+  let numplayers = data.length;
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
@@ -57,4 +56,5 @@ socket.on("playerKilled", (data) => {
   });
   $("#game-message").show();
   $("#game-message").fadeOut(5000);
+  $("#loginModal").modal("show");
 });
