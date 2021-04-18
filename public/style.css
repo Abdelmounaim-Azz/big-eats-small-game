@@ -42,14 +42,14 @@ h3 {
   position: relative;
 }
 
-#score-wrapper {
+#rank-wrapper {
   min-width: 120px;
-  background-color: white;
-  color: black;
-  font-size: 23px;
+  background: transparent;
+  color: #f77f00;
+  font-size: 2rem;
   opacity: 0.7;
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 10px;
   padding: 5px;
   border-radius: 5px;

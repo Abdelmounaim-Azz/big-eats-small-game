@@ -30,6 +30,7 @@ socket.on("clientOnly", (data) => {
 socket.on("updateBoard", (data) => {
   // $("#color-player").css("color", random_color);
   document.querySelector(".leader-board").innerHTML = "";
+  document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
     document.querySelector(".leader-board").innerHTML += `
         <li class="leaderboard-player flex-p">
@@ -39,6 +40,9 @@ socket.on("updateBoard", (data) => {
         </li>
       `;
     $("#color-player").css("color", random_color);
+    document.querySelector(
+      ".player-rank"
+    ).innerHTML += `${curPlayer.rank} of ${players.lenght}`;
   });
 });
 
