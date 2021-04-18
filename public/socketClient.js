@@ -28,7 +28,7 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  // $("#color-player").css("color", random_color);
+  let numPlayers = data.numPlayers;
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
@@ -40,10 +40,10 @@ socket.on("updateBoard", (data) => {
         </li>
       `;
     $("#color-player").css("color", random_color);
+    document.querySelector(
+      ".player-rank"
+    ).innerHTML += `${curPlayer.rank} of ${numPlayers}`;
   });
-  document.querySelector(
-    ".player-rank"
-  ).innerHTML += `${curPlayer.rank} of ${data.numPlayers}`;
 });
 
 socket.on("playerKilled", (data) => {
