@@ -25,7 +25,8 @@ socket.on("orbReplaced", (data) => {
 });
 
 socket.on("clientOnly", (data) => {
-  (player.locX = data.playerX), (player.locY = data.playerY);
+  player.locX = data.playerX;
+  player.locY = data.playerY;
 });
 socket.on("updateBoard", (data) => {
   let numplayers = data.length;
