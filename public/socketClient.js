@@ -28,7 +28,7 @@ socket.on("clientOnly", (data) => {
   (player.locX = data.playerX), (player.locY = data.playerY);
 });
 socket.on("updateBoard", (data) => {
-  let numPlayers = data.numPlayers;
+  let numPlayers = data[0].numPlayers;
   document.querySelector(".leader-board").innerHTML = "";
   document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
