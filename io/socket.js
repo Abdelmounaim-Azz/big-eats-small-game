@@ -94,14 +94,14 @@ io.sockets.on("connect", (socket) => {
       .catch(() => {});
   });
   socket.on("disconnect", (data) => {
-    player.playerData
-      ? players.forEach((currP, i) => {
-          if (currP.uid == player.playerData.uid) {
-            players.splice(i, 1);
-            io.sockets.emit("updateBoard", leadBoard());
-          }
-        })
-      : null;
+    if (player.playerData) {
+      players.forEach((currP, i) => {
+        if (currP.uid == player.playerData.uid) {
+          players.splice(i, 1);
+          io.sockets.emit("updateBoard", leadBoard());
+        }
+      });
+    }
   });
 });
 function initGame() {
