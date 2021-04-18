@@ -33,7 +33,7 @@ socket.on("updateBoard", (data) => {
   document.querySelector(".player-rank").innerHTML = "";
   data.forEach((curPlayer) => {
     document.querySelector(".leader-board").innerHTML += `
-        <li class="leaderboard-player flex-p">
+        <li class="leaderboard-player flex-p"> 
           <div>#${curPlayer.rank}</div>
           <div>${curPlayer.name}</div>
           <div>${curPlayer.score}</div>
@@ -42,7 +42,7 @@ socket.on("updateBoard", (data) => {
     $("#color-player").css("color", random_color);
     document.querySelector(
       ".player-rank"
-    ).innerHTML += `${curPlayer.rank} of ${players.lenght}`;
+    ).innerHTML += `${curPlayer.rank} of ${data.numPlayers}`;
   });
 });
 

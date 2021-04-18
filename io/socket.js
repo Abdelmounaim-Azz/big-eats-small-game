@@ -118,6 +118,7 @@ const leadBoard = () => {
       rank: i + 1,
       name: currentP.name,
       score: currentP.score,
+      numPlayers: players.length,
     };
   });
   return board;
